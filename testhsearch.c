@@ -1,14 +1,18 @@
+/* 14
+*/
+
 #include<stdio.h>
 #include<search.h>
 
 struct info {
 	int id, age;
 };
+
 #define TABLESIZE 50
 
 int main()
 {
-	char nametable[TABELSIZE*20];
+	char nametable[TABLESIZE*20];
 	char *nameptr = nametable;
 	struct info infotable[TABLESIZE];
 	struct info *infoptr = infotable;
@@ -16,8 +20,8 @@ int main()
 	char name[30];
 	int i=0;
 
-	(void)hcreate(TABELSIZE);
-	while (scanf(“%s%d%d”, nameptr, &infoptr->id, &infoptr->age) != EOF && i++ < TABLESIZE) {
+	(void)hcreate(TABLESIZE);
+	while (scanf("%s%d%d", nameptr, &infoptr->id, &infoptr->age) != EOF && i++ < TABLESIZE) {
 		item.key=nameptr;
 		item.data=(char*)infoptr;
 
@@ -28,11 +32,11 @@ int main()
 	}
 
 	item.key=name;
-	while (scanf(”%S”, item.key) ! = EDOD) {
-		if((found = hsearch(item, FIND)) ! = NULL){
-			pritnf(”found %s, id=%d, age=%d\n”, found->key, ((struct info * )found->data)->id, ((struct info*)found->data)->age;
-		}else{
-				printf(”no such employee %s\n”, name);
+	while (scanf("%s", item.key)!= EOF) {
+		if((found = hsearch(item, FIND))!= NULL){
+			printf("found %s, id=%d, age=%d\n", found->key, ((struct info * )found->data)->id, ((struct info*)found->data)->age);}
+		else{
+				printf("no such employee %s\n", name);
 		}
 	}
 }
